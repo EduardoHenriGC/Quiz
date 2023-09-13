@@ -3,8 +3,6 @@ import React from 'react';
 import styles from "@/styles/quiz/quiz.module.css";
 import Link from 'next/link';
 
-
-
 const Quiz = () => {
   const {
     currentQuestion,
@@ -17,6 +15,14 @@ const Quiz = () => {
     shuffledQuestions,
     shuffledOptions,
   } = useQuiz();
+
+  // Verifica se currentQuestion é uma posição válida no array de shuffledQuestions
+  // e se shuffledQuestions[currentQuestion] está definido
+  const currentQuestionValid =
+    currentQuestion >= 0 && currentQuestion < shuffledQuestions.length;
+  const currentQuestionObj = currentQuestionValid
+    ? shuffledQuestions[currentQuestion]
+    : null;
 
   return (
     <div className={styles.quizContainer}>
@@ -36,7 +42,10 @@ const Quiz = () => {
           </div>
           <div className={styles.answerContent}>
             <h2>{currentQuestion + 1}</h2>
-            <h4>{shuffledQuestions[currentQuestion].question}</h4>
+            {/* Verifica se currentQuestionObj está definido antes de acessar sua propriedade question */}
+            {currentQuestionObj && (
+              <h4>{currentQuestionObj.question}</h4>
+            )}
           </div>
           <div className={styles.options}>
             {shuffledOptions.map((option, index) => (
@@ -45,7 +54,7 @@ const Quiz = () => {
                 onClick={() => handleAnswerClick(option)}
                 className={`${
                   selectedAnswer === option
-                    ? option === shuffledQuestions[currentQuestion].correctAnswer
+                    ? option === currentQuestionObj?.correctAnswer
                       ? styles.correct
                       : styles.wrong
                     : styles.btn
