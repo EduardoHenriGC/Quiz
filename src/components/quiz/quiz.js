@@ -60,7 +60,7 @@ const Quiz = () => {
                     : styles.btn
                 }`}
               >
-                {option}
+              <span className={styles.btnspan}>{index + 1}</span>  {option} 
               </button>
             ))}
           </div>

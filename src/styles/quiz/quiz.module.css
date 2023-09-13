@@ -20,22 +20,9 @@
  justify-content: center;
 }
 
-.questionContainer h2 {
-    
-    background-color:#0d0210;
-    width: 40px;
-    text-align: center;
-    border-radius: 5px;
-    color: #fff;
-   
-    
-}
 
-.questionContainer h4{
 
-    margin-top: 50px;
-    text-align: center;
-}
+
 .options{
     display: flex;
     flex-direction: row;
@@ -51,11 +38,12 @@
  .options button{
     padding: 15px 50px;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 50px;
     cursor: pointer;
     margin-bottom: 7px;
     flex-basis: calc(50% - 10px); 
     font-weight: 600;
+    position: relative;
     
     
     
@@ -66,6 +54,20 @@
     background-color: #c9b7c7;
 }
 
+.btnspan{
+    
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    font-size: 18px;
+    border-radius: 50px;
+    background-color: #4d3147;
+    color: #fff;
+    width: 25px;
+    height: auto;
+    padding: 10px;
+    
+}
 
 .btn:hover{
 
@@ -153,11 +155,28 @@ color: #fffbff;
     border-radius: 0.5rem;
     
 }
+.answerContent h2 {
+    
+    background-color:#0d0210;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+   
+    
+}
+.answerContent h4{
+
+    margin-top: 30px;
+    text-align: center;
+}
 .backmenu{
     margin-top: 40px;
-    background-color: aqua;
+    background-color: #c9b7c7;
     padding: 8px 14px;
     border-radius: 0.25rem;
+    text-decoration: none;
+    color: #fff;
 }
 
 
@@ -195,6 +214,12 @@ color: #fffbff;
     
     
 }
+.btnspan{
+    
+ 
+    padding: 9px;
+    
+}
 
   }
 
@@ -221,9 +246,15 @@ height: 140px;
  width: 100%;
 padding: 10px 120px;
         }
+        .btnspan{
+    
+ 
+            padding: 5px;
+            
+        }
      }
   
-@media (max-width: 400px){
+@media (max-width: 450px){
 
     .options button{
         padding: 8px 80px;
@@ -232,6 +263,25 @@ padding: 10px 120px;
     .questionContainer h4{
         font-size: 0.8rem;
         margin-bottom: 10px;
+    }
+.btnspan{
+    
+ 
+    padding: 3px;
+    
+    
+    
+    
+}
+  }
+
+
+  @media (max-width: 281px){
+    .btnspan{
+    
+ 
+        display: none;
+        
     }
 
   }

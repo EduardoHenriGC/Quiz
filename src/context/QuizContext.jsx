@@ -16,14 +16,29 @@ export const QuizProvider = ({ children }) => {
   const [shuffledOptions, setShuffledOptions] = useState([]); //estado para embaralhar as opções de respostas
   
 
+// Função para embaralhar um array
+  function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  }
 
-    useEffect(() => {
+  useEffect(() => {
     if (shuffledQuestions[currentQuestion]) {
       // Embaralhar as opções para a pergunta atual
       const options = shuffleArray(shuffledQuestions[currentQuestion].options);
       setShuffledOptions(options);
     }
   }, [currentQuestion, shuffledQuestions]);
+
+  // Função para embaralhar as perguntas e limitar a 10 perguntas
+  function shuffleAndLimitQuestions(array, limit) {
+    const shuffledArray = shuffleArray(array);
+    return shuffledArray.slice(0, limit);
+  }
 
   useEffect(() => {
     // Limitar o número de perguntas a 10 e embaralhá-las
@@ -52,22 +67,11 @@ export const QuizProvider = ({ children }) => {
   }, [timeRemaining, selectedAnswer]);
 
 
-    // Função para embaralhar as perguntas e limitar a 10 perguntas
-    function shuffleAndLimitQuestions(array, limit) {
-      const shuffledArray = shuffleArray(array);
-      return shuffledArray.slice(0, limit);
-    }
+    
   
-    // Função para embaralhar um array
-    function shuffleArray(array) {
-      const newArray = [...array];
-      for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-      }
-      return newArray;
-    }
-
+    
+   
+   // funcao que recebe a opção selecionada e verifica se esta certo ou errado
     const handleAnswerClick = (selectedOption) => {
       if (selectedOption === shuffledQuestions[currentQuestion].correctAnswer) {
         // Resposta correta
@@ -110,6 +114,8 @@ export const QuizProvider = ({ children }) => {
     }, 2750);
   };
 
+
+  //função para passar pra proxima questao 
   const handleNextQuestion = () => {
     
     if (currentQuestion + 1 < shuffledQuestions.length) {
