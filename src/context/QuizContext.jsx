@@ -14,7 +14,7 @@ export const QuizProvider = ({ children }) => {
   const [timeRemaining, setTimeRemaining] = useState(15);  // estado para mostrar o tempo restante para responder a questao
   const [shuffledQuestions, setShuffledQuestions] = useState([]); //estado para embaralhar as questões
   const [shuffledOptions, setShuffledOptions] = useState([]); //estado para embaralhar as opções de respostas
-  
+  const [answerButtonsDisabled, setAnswerButtonsDisabled] = useState(false);
 
 // Função para embaralhar um array
   function shuffleArray(array) {
@@ -73,6 +73,7 @@ export const QuizProvider = ({ children }) => {
    
    // funcao que recebe a opção selecionada e verifica se esta certo ou errado
     const handleAnswerClick = (selectedOption) => {
+      setAnswerButtonsDisabled(true);
       if (selectedOption === shuffledQuestions[currentQuestion].correctAnswer) {
         // Resposta correta
         setScore(score + 100);
@@ -96,6 +97,9 @@ export const QuizProvider = ({ children }) => {
       } else{
       setConsecutiveCorrectAnswers(0);
       setTimeRemaining(0);
+      setTimeout(() => {
+        setAnswerButtonsDisabled(false);
+      }, 2750);
     }
 
     setSelectedAnswer(selectedOption);
@@ -106,6 +110,7 @@ export const QuizProvider = ({ children }) => {
       if (currentQuestion + 1 < shuffledQuestions.length) {
         setCurrentQuestion(currentQuestion + 1);
         setTimeRemaining(15);
+        
       } else {
         // Mostrar a pontuação final após 10 perguntas
         setShowScore(true);
@@ -124,14 +129,16 @@ export const QuizProvider = ({ children }) => {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
         setTimeRemaining(15);
+        setAnswerButtonsDisabled(false)
         
       }, 2100);
     } else {
       
       setTimeout(() => {
-        // Mostrar a pontuação final após um atraso de 2,1 segundos
+        // Mostrar a pontuação final após um atraso de 0,5 segundos
         setShowScore(true);
         setGameOver(true);
+        
       }, 500);
     }
   };
@@ -164,7 +171,8 @@ export const QuizProvider = ({ children }) => {
         restartGame,
         timeRemaining,
         shuffledQuestions,
-        shuffledOptions
+        shuffledOptions,
+        answerButtonsDisabled
       }}
     >
       {children}

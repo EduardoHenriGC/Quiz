@@ -14,6 +14,7 @@ const Quiz = () => {
     timeRemaining,
     shuffledQuestions,
     shuffledOptions,
+    answerButtonsDisabled
   } = useQuiz();
 
   // Verifica se currentQuestion é uma posição válida no array de shuffledQuestions
@@ -48,21 +49,23 @@ const Quiz = () => {
             )}
           </div>
           <div className={styles.options}>
-            {shuffledOptions.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswerClick(option)}
-                className={`${
-                  selectedAnswer === option
-                    ? option === currentQuestionObj?.correctAnswer
-                      ? styles.correct
-                      : styles.wrong
-                    : styles.btn
-                }`}
-              >
-              <span className={styles.btnspan}>{index + 1}</span>  {option} 
-              </button>
-            ))}
+          {shuffledOptions.map((option, index) => (
+  <button
+    key={index}
+    onClick={() => handleAnswerClick(option)}
+    className={`${
+      selectedAnswer === option
+        ? option === currentQuestionObj?.correctAnswer
+          ? styles.correct
+          : styles.wrong
+        : styles.btn
+    }`}
+    disabled={answerButtonsDisabled} // Desativa o botão quando answerButtonsDisabled é verdadeiro
+  >
+    <span className={styles.btnspan}>{index + 1}</span>  {option} 
+  </button>
+))}
+
           </div>
           <Link className={styles.backmenu} href="/" onClick={restartGame}>
             Voltar para o menu
