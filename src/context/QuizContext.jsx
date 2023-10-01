@@ -154,6 +154,7 @@ export const QuizProvider = ({ children }) => {
     setConsecutiveCorrectAnswers(0);
     setTimeRemaining(15);
     setShuffledQuestions(shuffleAndLimitQuestions(questions, 10));
+    setAnswerButtonsDisabled(false)
   };
 
   const restartGame = () => {
