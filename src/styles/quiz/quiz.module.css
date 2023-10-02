@@ -11,6 +11,7 @@
    
 }
 
+
 .questionContainer{
     width: 700px;
     
@@ -31,6 +32,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     
+    
+    
   
 }
 
@@ -38,7 +41,7 @@
  .options button{
     padding: 15px 50px;
     border: none;
-    border-radius: 50px;
+    
     cursor: pointer;
     margin-bottom: 7px;
     flex-basis: calc(50% - 10px); 
@@ -50,9 +53,8 @@
 
 
 }
-.btn{
-    background-color: #f8dfbd;
-}
+
+
 
 .btnspan{
     
@@ -69,6 +71,10 @@
     
 }
 
+.btn{
+    background-color: #f8dfbd;
+
+}
 .btn:hover{
 
     background-color: #ddd;
@@ -182,8 +188,63 @@ color: #fff;
     text-decoration: none;
     color: #fff;
 }
+@media (max-width: 1281px){
 
+    .btn:hover{
 
+        background: #f8dfbd;
+    }
+}
+@media (max-width: 1025px){
+
+    .scoreContent{
+        top: 20px;
+        
+
+        
+    }
+    
+    .timeContent{
+        top: 60px;
+    }
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+}
+@media (max-width: 913px){
+
+ .scoreContent{
+        top: 140px;
+        font-size: 2rem;
+
+    }
+    .timeContent{
+        top: 200px;
+    }
+    .timeContent p{
+        font-size: 2rem;
+    }
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+
+}
+@media (max-width: 821px){
+
+    .scoreContent{
+        top: 80px;
+
+    }
+    .timeContent{
+        top: 140px;
+    }
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+}
 @media (max-width: 750px) {
    .questionContainer{
 
@@ -229,17 +290,18 @@ color: #fff;
 }
 
   }
+  
 
   @media (max-width: 550px){
 
 .scoreContent{
 
-    top: 75px;
+    top: 65px;
     font-size: 18px;
 }
 .timeContent{
    
-    top: 110px;
+    top: 100px;
    
 }
 .answerContent{
@@ -267,10 +329,23 @@ padding: 10px 120px;
   
 @media (max-width: 450px){
 
+    .scoreContent{
+        top: 25px;
+    }
+
+    .timeContent{
+        top: 70px;
+    }
+    .timeContent p{
+        font-size: 1.2rem;
+    }
     .options button{
         padding: 8px 80px;
+        
+        
 
     }
+    
     .questionContainer h4{
         font-size: 0.8rem;
         margin-bottom: 10px;
@@ -292,6 +367,18 @@ padding: 10px 120px;
 
 
   @media (max-width: 281px){
+
+    .score{
+        font-size: 12px;
+        
+    }
+   .timeContent{
+    top: 60px;
+   }
+    .timeContent p{
+
+        font-size: 14px;
+    }
     .btnspan{
     
  
