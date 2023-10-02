@@ -1,4 +1,3 @@
-import { SessionProvider } from "next-auth/react";
 import { QuizProvider } from "./QuizContext";
 
 export const AppProvider = ({children,session}) => {
@@ -6,7 +5,7 @@ export const AppProvider = ({children,session}) => {
 
 
     return (
-    <SessionProvider session={session}>
+    
       <QuizProvider>
       
     
@@ -17,6 +16,6 @@ export const AppProvider = ({children,session}) => {
 
   </QuizProvider>
     
-    </SessionProvider>
+    
     )
 }
