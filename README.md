@@ -22,5 +22,5 @@ Há uma dependência que não é instalada automaticamente pelo npm install, que
 npm install react-toastify@^9.1.3
 Isso instalará a versão 9.1.3 ou uma versão mais recente do react-toastify no seu projeto.
 
-Aqui está o site do projeto hospedado no netlify https://main--amvgquiz.netlify.app/  
+Aqui está o site do projeto hospedado no netlify https://forcadomilenio.netlify.app/
 -o projeto ainda está sujeito a alterações trazendo melhorias e correções.
