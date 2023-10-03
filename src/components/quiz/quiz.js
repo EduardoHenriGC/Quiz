@@ -67,7 +67,7 @@ const Quiz = () => {
 ))}
 
           </div>
-          <Link className={styles.backmenu} href="/" onClick={restartGame}>
+          <Link className={styles.backmenu} href="/">
             Voltar para o menu
           </Link>
         </div>

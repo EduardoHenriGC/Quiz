@@ -1,7 +1,10 @@
 import Link from "next/link";
 import styles from "@/styles/index/index.module.css"
-export default function IndexComp(){
+import { useQuiz } from "@/context/QuizContext";
 
+
+export default function IndexComp(){
+    const {restartGame} = useQuiz();
     return (
 
         <div className={styles.container}>
@@ -17,7 +20,7 @@ export default function IndexComp(){
             </ul>
 
 
-            <Link href="/quiz">
+            <Link href="/quiz" onClick={restartGame}>
 
                 iniciar jogo
             </Link>
