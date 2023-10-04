@@ -30,10 +30,11 @@ const Quiz = () => {
       {showScore ? (
         <div className={styles.score}>
           <p>Sua pontuação foi de {score} de {shuffledQuestions.length} perguntas !!</p>
-          <Link href="/" onClick={restartGame}>
+          <button onClick={restartGame}>Jogar Novamente</button>
+          <Link href="/">
             Voltar
           </Link>
-          <button onClick={restartGame}>Jogar Novamente</button>
+          
         </div>
       ) : (
         <div className={styles.questionContainer}>

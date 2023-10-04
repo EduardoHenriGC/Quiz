@@ -9,7 +9,7 @@ export default function IndexComp(){
 
         <div className={styles.container}>
 
-            <h1 data-text="Quiz do milênio">Quiz do milênio</h1>
+            <div className={styles.logoContent}><h1 data-text="Quiz do milênio">Quiz do milênio  </h1><img src="https://w7.pngwing.com/pngs/369/866/png-transparent-skull-a20-illustration-video-game-gamer-logo-electronic-sports-others-miscellaneous-game-fictional-character.png" width="40px" height="40px"/></div>
 
           <h3>Regras do jogo</h3>
             <ul>

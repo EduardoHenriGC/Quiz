@@ -1,6 +1,6 @@
 .quizContainer{
 
-    background-color: #130716;
+    background-color: aliceblue;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -47,6 +47,7 @@
     flex-basis: calc(50% - 10px); 
     font-weight: 600;
     position: relative;
+    
     
     
     
@@ -98,50 +99,49 @@
     
     flex-direction: column;
     margin-top: 100px;
-    color: aliceblue;
-    
-}
-
-.score a{
-
-    margin: 40px auto;
-    font-size: 1rem;
-    text-decoration: none;
     color: #111;
-    text-transform: uppercase;
-    padding: 10px 30px;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    font-weight: 600;
     
 }
-.score a:hover{
 
-background-color: #4d3147;
-color: #fff;
-}
-.score button {
 
-    border: none;
-    padding: 10px 30px;
-    border-radius: 0.5rem;
+         
+.score button , .score a{
+    background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%);
+    margin: 30px;
+    padding: 12px;
+    text-align: center;
     text-transform: uppercase;
-    font-weight: 600;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 4px #eee;
+    border-radius: 10px;
+    display: block;
     cursor: pointer;
+    margin-top: 30px;
+    
+   
+    
+  }
 
-}
-.score button:hover{
-
-    background-color: #4d3147;
-    color: #fff;
-}
+  .score button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: gold;
+    text-decoration: none;
+  }
+  .score a:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: gold;
+    text-decoration: none;
+  }
+ 
 .scoreContent{
 
     font-weight: 600;
     position: absolute;
     top: 100px;
     font-size: 24px;
-    color: aliceblue;
+    color: #111;;
     
 }
 
@@ -150,17 +150,18 @@ color: #fff;
     position: absolute;
     top: 150px;
     font-size: 24px;
-    color: aliceblue;
+    color: #111;
     
 }
 
 .answerContent{
 
-    background-color: #9a2848;
-    color: #fffbff;
+    background-color: #CE4E64;
+    color: #000;
 
     width: 100%;
     height: 170px;
+    font-size: 1.1rem;
     
     border-radius: 0.5rem;
     
@@ -193,6 +194,12 @@ color: #fff;
     .btn:hover{
 
         background: #f8dfbd;
+    }
+
+    .options button{
+
+        width: 45vw;
+        
     }
 }
 @media (max-width: 1025px){
@@ -313,7 +320,10 @@ height: 140px;
 
  flex-basis: auto;
  width: 100%;
-padding: 10px 120px;
+
+width: 85vw;
+padding: 10px 5px;
+
         }
         .btnspan{
     
@@ -339,12 +349,7 @@ padding: 10px 120px;
     .timeContent p{
         font-size: 1.2rem;
     }
-    .options button{
-        padding: 8px 80px;
-        
-        
-
-    }
+    
     
     .questionContainer h4{
         font-size: 0.8rem;
@@ -378,6 +383,12 @@ padding: 10px 120px;
     .timeContent p{
 
         font-size: 14px;
+    }
+    .options button{
+
+        width: 85vw;
+        padding: 10px 5px;
+        
     }
     .btnspan{
     
