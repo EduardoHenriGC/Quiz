@@ -1,0 +1,43 @@
+.score{
+
+    display: flex;
+    align-content: center;
+    
+    flex-direction: column;
+    margin-top: 100px;
+    color: #111;
+    
+}
+
+
+         
+.score button , .score a{
+    background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%);
+    margin: 30px;
+    padding: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: gray;            
+    box-shadow: 0 0 4px #eee;
+    border-radius: 10px;
+    display: block;
+    cursor: pointer;
+    margin-top: 30px;
+    
+   
+    
+  }
+
+  .score button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  .score a:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 

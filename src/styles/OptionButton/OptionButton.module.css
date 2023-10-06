@@ -1,0 +1,222 @@
+
+
+
+
+.options{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    
+    
+  
+}
+
+
+ .options button{
+    padding: 15px 50px;
+    border: none;
+    
+    cursor: pointer;
+    margin-bottom: 7px;
+    flex-basis: calc(50% - 10px); 
+    font-weight: 600;
+    position: relative;
+    
+    
+    
+    
+
+
+}
+
+
+
+.btnspan{
+    
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    font-size: 18px;
+    border-radius: 50px;
+    background-color: #fc8c77;
+    color: #fff;
+    width: 25px;
+    height: auto;
+    padding: 10px;
+    
+}
+
+.btn{
+    background-color:;
+
+}
+.btn:hover{
+
+    background-color: #ddd;
+}
+
+.correct{
+    background-color: green;
+    color: #fff;
+}
+
+
+.wrong{
+    background-color: red;
+    color: #fff;
+}
+
+
+
+
+         
+
+@media (max-width: 1281px){
+
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+
+    .options button{
+
+        width: 45vw;
+        
+    }
+}
+@media (max-width: 1025px){
+    
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+}
+@media (max-width: 913px){
+
+ 
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+
+}
+@media (max-width: 821px){
+
+  
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+}
+@media (max-width: 750px) {
+ 
+   .options{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  
+}
+.options button {
+
+    flex-basis: auto;
+    width: 100%;
+    padding: 14px 120px;
+    
+    
+}
+.btnspan{
+    
+ 
+    padding: 9px;
+    
+}
+.btn:hover{
+
+    background: #f8dfbd;
+}
+
+  }
+  
+
+  @media (max-width: 550px){
+
+
+.options button {
+
+ flex-basis: auto;
+ width: 100%;
+
+width: 85vw;
+padding: 10px 5px;
+
+        }
+        .btnspan{
+    
+ 
+            padding: 5px;
+            
+        }
+        .btn:hover{
+
+            background: #f8dfbd;
+        }
+     }
+  
+@media (max-width: 450px){
+
+ 
+.btnspan{
+    
+ 
+    padding: 3px;
+    
+    
+    
+    
+}
+.btn:hover{
+
+    background: #f8dfbd;
+}
+  }
+
+
+  @media (max-width: 281px){
+
+    .score{
+        font-size: 12px;
+        
+    }
+   .timeContent{
+    top: 60px;
+   }
+    .timeContent p{
+
+        font-size: 14px;
+    }
+    .options button{
+
+        width: 85vw;
+        padding: 10px 5px;
+        
+    }
+    .btnspan{
+    
+ 
+        display: none;
+        
+    }
+    .btn:hover{
+
+        background: #f8dfbd;
+    }
+
+  }

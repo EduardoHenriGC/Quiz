@@ -73,6 +73,8 @@ export const QuizProvider = ({ children }) => {
    
    // funcao que recebe a opção selecionada e verifica se esta certo ou errado
     const handleAnswerClick = (selectedOption) => {
+
+     
       setAnswerButtonsDisabled(true);
       if (selectedOption === shuffledQuestions[currentQuestion].correctAnswer) {
         // Resposta correta

@@ -2,6 +2,8 @@ import { useQuiz } from '@/context/QuizContext';
 import React from 'react';
 import styles from "@/styles/quiz/quiz.module.css";
 import Link from 'next/link';
+import GameOver from '../GameOver';
+import OptionButton from '../OptionButton';
 
 const Quiz = () => {
   const {
@@ -27,16 +29,8 @@ const Quiz = () => {
 
   return (
     <div className={styles.quizContainer}>
-      {showScore ? (
-        <div className={styles.score}>
-          <p>Sua pontuação foi de {score} de {shuffledQuestions.length} perguntas !!</p>
-          <button onClick={restartGame}>Jogar Novamente</button>
-          <Link href="/">
-            Voltar
-          </Link>
-          
-        </div>
-      ) : (
+      {showScore ? <GameOver showScore={showScore} shuffledQuestions={shuffledQuestions} score={score} restartGame={restartGame}/> 
+      : (
         <div className={styles.questionContainer}>
           <div className={styles.scoreContent}>SCORE: {score}</div>
           <div className={styles.timeContent}>
@@ -49,25 +43,12 @@ const Quiz = () => {
               <h4>{currentQuestionObj.question}</h4>
             )}
           </div>
-          <div className={styles.options}>
-          {shuffledOptions.map((option, index) => (
-  <button
-    key={index}
-    onClick={() => handleAnswerClick(option)}
-    className={`${
-      selectedAnswer === option
-        ? option === currentQuestionObj?.correctAnswer
-          ? styles.correct
-          : styles.wrong
-        : styles.btn
-    }`}
-    disabled={answerButtonsDisabled} // Desativa o botão quando answerButtonsDisabled é verdadeiro
-  >
-    <span className={styles.btnspan}>{index + 1}</span>  {option} 
-  </button>
-))}
-
-          </div>
+          <OptionButton answerButtonsDisabled={answerButtonsDisabled} 
+          shuffledOptions={shuffledOptions}
+           timeRemaining={timeRemaining} 
+           handleAnswerClick={handleAnswerClick} 
+           selectedAnswer={selectedAnswer} c
+           urrentQuestionObj={currentQuestionObj}/>
           <Link className={styles.backmenu} href="/">
             Voltar para o menu
           </Link>
