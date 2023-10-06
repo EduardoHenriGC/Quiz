@@ -47,8 +47,8 @@ const Quiz = () => {
           shuffledOptions={shuffledOptions}
            timeRemaining={timeRemaining} 
            handleAnswerClick={handleAnswerClick} 
-           selectedAnswer={selectedAnswer} c
-           urrentQuestionObj={currentQuestionObj}/>
+           selectedAnswer={selectedAnswer} 
+           currentQuestionObj={currentQuestionObj}/>
           <Link className={styles.backmenu} href="/">
             Voltar para o menu
           </Link>
