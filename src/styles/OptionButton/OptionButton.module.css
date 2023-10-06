@@ -50,13 +50,15 @@
     
 }
 
-.btn{
-    background-color:;
 
+.btn{
+    
+    background-color: #ddd;
 }
+
 .btn:hover{
 
-    background-color: #ddd;
+    background-color: #fff;
 }
 
 .correct{
@@ -79,7 +81,7 @@
 
     .btn:hover{
 
-        background: #f8dfbd;
+        background: #ddd;
     }
 
     .options button{
@@ -92,7 +94,7 @@
     
     .btn:hover{
 
-        background: #f8dfbd;
+        background: #ddd;
     }
 }
 @media (max-width: 913px){
@@ -100,7 +102,7 @@
  
     .btn:hover{
 
-        background: #f8dfbd;
+        background: #ddd;
     }
 
 }
@@ -109,7 +111,7 @@
   
     .btn:hover{
 
-        background: #f8dfbd;
+        background: #ddd;
     }
 }
 @media (max-width: 750px) {
@@ -140,7 +142,7 @@
 }
 .btn:hover{
 
-    background: #f8dfbd;
+    background: #ddd;
 }
 
   }
@@ -166,7 +168,7 @@ padding: 10px 5px;
         }
         .btn:hover{
 
-            background: #f8dfbd;
+            background: #ddd;
         }
      }
   
@@ -184,7 +186,7 @@ padding: 10px 5px;
 }
 .btn:hover{
 
-    background: #f8dfbd;
+    background: #ddd;
 }
   }
 
@@ -216,7 +218,7 @@ padding: 10px 5px;
     }
     .btn:hover{
 
-        background: #f8dfbd;
+        background: #ddd;
     }
 
   }
