@@ -1,0 +1,151 @@
+.score {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    color: #111;
+
+}
+
+.container {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.score button,
+.score a {
+    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%);
+    margin: 30px;
+    padding: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 4px #eee;
+    border-radius: 10px;
+    display: block;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.score button:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: gold;
+    text-decoration: none;
+}
+
+.score a:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: gold;
+    text-decoration: none;
+}
+
+.scoreContent {
+    font-weight: 600;
+
+    font-size: 20px;
+    color: #111;
+    background-color: #0496FF;
+    padding: 7px;
+    border-radius: 0.5rem;
+}
+
+.timeContent {
+    font-weight: 600;
+    background-color: #0496FF;
+    padding: 7px;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    color: #111;
+
+}
+
+
+@media(max-width: 1000px) and (max-height:600px) {
+    .container {
+
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+
+    }
+
+
+    .scoreContent {
+
+
+        padding: 7px;
+
+
+    }
+
+    .timeContent {
+
+
+        text-transform: lowercase;
+
+        margin-top: 0px;
+    }
+
+
+}
+
+
+@media (max-width: 913px) {
+    .scoreContent {
+
+        font-size: 2rem;
+
+    }
+
+
+    .timeContent p {
+        font-size: 2rem;
+    }
+
+
+}
+
+
+
+
+
+@media (max-width: 550px) {
+
+    .scoreContent {
+        font-size: 1.2rem;
+    }
+
+    .timeContent p {
+        font-size: 1.2rem;
+    }
+
+
+
+
+}
+
+
+
+
+@media (max-width: 281px) {
+
+    .scoreContent {
+        font-size: 0.9rem;
+    }
+
+    .timeContent p {
+        font-size: 0.9rem;
+    }
+
+
+
+
+
+}

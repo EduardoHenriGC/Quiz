@@ -1,113 +1,189 @@
-.container{
+.container {
 
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0px auto;
-    background-color: aliceblue;
-    height: 100vh;
-    width: 100%;
-    
-    
-   
-}
-.logoContent{
   display: flex;
-  
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px auto;
+
+  height: 100vh;
+  width: 100%;
+
+
+
+}
+
+.logoContent {
+  display: flex;
+
   align-items: center;
   justify-content: center;
-  
+
   margin-top: 100px;
 }
 
 .logoContent h1 {
-    
-    position: relative;
-    font-size: 30px;
-    -webkit-text-stroke: 0.3vw #333;
-    text-transform: uppercase;
+
+  position: relative;
+  font-size: 30px;
+  -webkit-text-stroke: 0.3vw #333;
+  text-transform: uppercase;
+}
+
+.logoContent h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: #9a2848;
+  -webkit-text-stroke: 0vw;
+  border-right: 2px solid #9a2848;
+  overflow: hidden;
+  animation: animate 6s linear infinite alternate;
+  /* Usar "alternate" para ir e voltar */
+  white-space: nowrap;
+  /* Impede quebrar em várias linhas */
+}
+
+.logoContent img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
   }
-  
-  .logoContent h1::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+
+
+.container a {
+  background-image: linear-gradient(to right, #EC6F66 0%, #F3A183 51%, #EC6F66 100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 3px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.container a:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.container h3 {
+  margin-top: 140px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.container ul {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.container ul li {
+
+  margin-top: 15px;
+  color: #fff;
+  text-align: center;
+  text-align: left;
+}
+
+
+@media(max-width: 1000px) and (max-height:600px) {
+
+  .container {
+
     height: 100%;
-    color: #9a2848;
-    -webkit-text-stroke: 0vw;
-    border-right: 2px solid #9a2848;
-    overflow: hidden;
-    animation: animate 6s linear infinite alternate; /* Usar "alternate" para ir e voltar */
-    white-space: nowrap; /* Impede quebrar em várias linhas */
-  }
-  
-  @keyframes animate {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-  
-  
 
-         
+  }
+
+  .logoContent {
+
+    margin-top: 20px;
+  }
+
+  .container h3 {
+    margin-top: 20px;
+  }
+
+  .container ul {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+@media(max-width:653px) and (max-height:280px) {
+
+  .logoContent {
+
+    margin-top: 10px;
+  }
+
+  .logoContent h1 {
+
+    font-size: 16px;
+  }
+
+  .container h3 {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+
+  .container ul {
+    margin-top: 0;
+    font-size: 0.8rem;
+
+
+
+  }
+
+  .container ul li {
+    text-align: center;
+  }
+
   .container a {
-    background-image: linear-gradient(to right, #EC6F66 0%, #F3A183  51%, #EC6F66  100%);
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 3px #eee;
-    border-radius: 10px;
-    display: block;
+    padding: 10px;
+    font-size: 16px;
+    text-transform: lowercase;
   }
-
-  .container a:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-  }
- 
-.container h3{
-    margin-top: 140px;
-    color: #333;
-    font-size: 1.5rem;
 }
 
-.container ul{
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-.container ul li{
-
-    margin-top: 15px;
-    color: #333;
-    text-align: center;
-    text-align: left;
-}
-
-@media (max-width: 700px){
-  .container ul{
+@media (max-width: 700px) {
+  .container ul {
     width: 90%;
   }
 
 }
 
-@media (max-width: 281px){
-  .logoContent{
+@media (max-width: 281px) {
+  .logoContent {
     margin-top: 50px;
-    
+
   }
-  .logoContent img{
+
+  .logoContent img {
     display: none;
   }
+
 
 }

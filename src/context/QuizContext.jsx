@@ -15,16 +15,24 @@ export const QuizProvider = ({ children }) => {
   const [shuffledQuestions, setShuffledQuestions] = useState([]); //estado para embaralhar as questões
   const [shuffledOptions, setShuffledOptions] = useState([]); //estado para embaralhar as opções de respostas
   const [answerButtonsDisabled, setAnswerButtonsDisabled] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
 
-// Função para embaralhar um array
-  function shuffleArray(array) {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+
+  useEffect(() => {
+    if (showScore) {
+      // Quando gameOver for verdadeiro, aguarde 3 segundos antes de mostrar os botões
+      const timeout = setTimeout(() => {
+        setShowButtons(true);
+      }, 3000);
+
+      return () => clearTimeout(timeout); // Limpa o timeout se o componente for desmontado
+    } else {
+      // Se o jogo não estiver no estado de game over, certifique-se de ocultar os botões
+      setShowButtons(false);
+
     }
-    return newArray;
-  }
+  }, [showScore]);
+
 
   useEffect(() => {
     if (shuffledQuestions[currentQuestion]) {
@@ -47,7 +55,7 @@ export const QuizProvider = ({ children }) => {
 
   useEffect(() => {
     let timer;
-  
+
     if (timeRemaining > 0) {
       timer = setTimeout(() => {
         setTimeRemaining(timeRemaining - 1);
@@ -57,46 +65,51 @@ export const QuizProvider = ({ children }) => {
       if (!selectedAnswer) {
         setConsecutiveCorrectAnswers(0); // Zerar respostas consecutivas corretas
       }
-      
+
       handleNextQuestion(); // Avançar para a próxima pergunta
     }
-  
+
     return () => {
       if (timer) clearTimeout(timer);
     };
   }, [timeRemaining, selectedAnswer]);
 
+  // Função para embaralhar um array
+  function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  }
 
-    
-  
-    
-   
-   // funcao que recebe a opção selecionada e verifica se esta certo ou errado
-    const handleAnswerClick = (selectedOption) => {
+  // funcao que recebe a opção selecionada e verifica se esta certo ou errado
+  const handleAnswerClick = (selectedOption) => {
 
-     
-      setAnswerButtonsDisabled(true);
-      if (selectedOption === shuffledQuestions[currentQuestion].correctAnswer) {
-        // Resposta correta
-        setScore(score + 100);
-        setConsecutiveCorrectAnswers(consecutiveCorrectAnswers + 1);
-        setTimeRemaining(0);
-  
-        // Exibir mensagens de sucesso com base nas respostas consecutivas
-        const consecutiveMessages = {
-          2: 'Você acertou 3 perguntas consecutivas!',
-          4: 'Você acertou 5 perguntas consecutivas!',
-          7: 'Você acertou 8 perguntas consecutivas!',
-        };
-  
-        if (consecutiveMessages[consecutiveCorrectAnswers]) {
-          setScore(score + 150);
-          toast.success(`Parabéns! ${consecutiveMessages[consecutiveCorrectAnswers]}`, {
-            autoClose: 2100,
-            position: 'bottom-right',
-          });
-        }
-      } else{
+
+    setAnswerButtonsDisabled(true);
+    if (selectedOption === shuffledQuestions[currentQuestion].correctAnswer) {
+      // Resposta correta
+      setScore(score + 100);
+      setConsecutiveCorrectAnswers(consecutiveCorrectAnswers + 1);
+      setTimeRemaining(0);
+
+      // Exibir mensagens de sucesso com base nas respostas consecutivas
+      const consecutiveMessages = {
+        2: 'Você acertou 3 perguntas consecutivas!',
+        4: 'Você acertou 5 perguntas consecutivas!',
+        7: 'Você acertou 8 perguntas consecutivas!',
+      };
+
+      if (consecutiveMessages[consecutiveCorrectAnswers]) {
+        setScore(score + 150);
+        toast.success(`Parabéns! ${consecutiveMessages[consecutiveCorrectAnswers]}`, {
+          autoClose: 2100,
+          position: 'bottom-right',
+        });
+      }
+    } else {
       setConsecutiveCorrectAnswers(0);
       setTimeRemaining(0);
       setTimeout(() => {
@@ -112,7 +125,7 @@ export const QuizProvider = ({ children }) => {
       if (currentQuestion + 1 < shuffledQuestions.length) {
         setCurrentQuestion(currentQuestion + 1);
         setTimeRemaining(15);
-        
+
       } else {
         // Mostrar a pontuação final após 10 perguntas
         setShowScore(true);
@@ -124,28 +137,26 @@ export const QuizProvider = ({ children }) => {
 
   //função para passar pra proxima questao 
   const handleNextQuestion = () => {
-    
+
     if (currentQuestion + 1 < shuffledQuestions.length) {
       setTimeout(() => {
-        
+
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
         setTimeRemaining(15);
         setAnswerButtonsDisabled(false)
-        
+
       }, 2100);
     } else {
-      
+
       setTimeout(() => {
         // Mostrar a pontuação final após um atraso de 0,5 segundos
         setShowScore(true);
         setGameOver(true);
-        
+
       }, 500);
     }
   };
-
- 
 
   const resetGameState = () => {
     setCurrentQuestion(0);
@@ -165,7 +176,7 @@ export const QuizProvider = ({ children }) => {
   return (
     <QuizContext.Provider
       value={{
-        
+
         currentQuestion,
         score,
         showScore,
@@ -175,7 +186,8 @@ export const QuizProvider = ({ children }) => {
         timeRemaining,
         shuffledQuestions,
         shuffledOptions,
-        answerButtonsDisabled
+        answerButtonsDisabled,
+        showButtons
       }}
     >
       {children}
